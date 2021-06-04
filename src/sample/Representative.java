@@ -10,17 +10,9 @@ public class Representative {
     private String passport_ID;
     private String passport_series;
 
-    public Representative(String name_representative, String telephone, String registration,
-                          String gender, String parent, String guardian, String passport_ID, String passport_series) {
-        this.name_representative = name_representative;
-        this.telephone = telephone;
-        this.registration = registration;
-        this.gender = gender;
-        this.parent = parent;
-        this.guardian = guardian;
-        this.passport_ID = passport_ID;
-        this.passport_series = passport_series;
+    public Representative(String name, String pass_id, String pass_series, String reg, String phone, String gender, String guardian, String parent) {
     }
+
 
     public String getName_representative() {
         return name_representative;

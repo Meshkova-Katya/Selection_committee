@@ -99,7 +99,26 @@ public class EnrolleeController {
     @FXML
     void initialize() {
         button1.setOnAction(event -> signUpNewEnrollee());
-
+        button1.setOnAction(event -> window(button1));
 
     }
+
+    public void window(Button button1){
+         button1.getScene().getWindow().hide(); // закрытие текущего окна
+
+         FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(getClass().getResource("/sample/Representative.fxml"));
+
+         try {
+             loader.load();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+
+         Parent root = loader.getRoot();
+         Stage stage = new Stage();
+         stage.setScene(new Scene(root, 600, 600));
+         stage.showAndWait(); // чтобы подождал
+
+     }
 }

@@ -1,4 +1,5 @@
 package sample;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,9 +12,10 @@ import static sample.Const.REGISTRATION;
 import static sample.ConstRepresentative.*;
 
 
-public class DatabaseHandler  extends Configs{
+public class DatabaseHandler extends Configs {
 
     Connection dbConnection;
+
     public Connection getDbConnection() throws ClassNotFoundException, SQLException {
         String url = "jdbc:mysql://localhost/selection_committee?serverTimezone=Europe/Moscow&useSSL=false";
         String userName = dbUser;
@@ -22,6 +24,7 @@ public class DatabaseHandler  extends Configs{
         dbConnection = DriverManager.getConnection(url, userName, password);
         return dbConnection;
     }
+
     public void signUpEnrolle(Enrollee enrolle) throws SQLException {
 
         String insert = "INSERT INTO " + ENROLLEE + "( " + ADMISSION_SCORE + ", " + PASSPORT_ID + "," + PASSPORT_SERIES +
@@ -65,9 +68,9 @@ public class DatabaseHandler  extends Configs{
                 prSt.setString(5, representative.getParent());
                 prSt.setString(6, representative.getGuardian());
                 prSt.setString(7, representative.getPassport_ID());
-                prSt.setString(7, representative.getPassport_series());
-
-
+                prSt.setString(8, representative.getPassport_series());
+                System.out.println(prSt);
+                System.out.println(insert);
                 // Добавляет в бд
                 prSt.executeUpdate();
 

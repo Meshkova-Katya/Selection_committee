@@ -58,11 +58,13 @@ public class RepresentativeController {
         String reg = registration.getText().trim();
         String phone = telephone.getText().trim();
         if (!name.equals("") && !pass_Id.equals("") && !pass_series.equals("") && !reg.equals("") && !phone.equals("")) {
-            String representative = "";
+            String parent = "";
+            String guardian = "";
             if (comboBox2.getValue().equals("Родитель")) {
-                representative = "Родитель";
-            } else {
-                representative = "Опекун";
+                parent = "Родитель";
+            }
+            if (comboBox2.getValue().equals("Опекун")) {
+                guardian  = "Родитель";
             }
             String gender = "";
             if (group.getSelectedToggle().equals(male)) {
@@ -72,12 +74,12 @@ public class RepresentativeController {
             }
 
 
-            Enrollee enrollee = new Enrollee(name, pass_Id, pass_series, reg, phone, representative, gender);
+            Representative representative2 = new Representative(name, pass_Id, pass_series, reg, phone, gender, guardian, parent);
 
 
             try {
 
-                dbHandler.signUpEnrolle(enrollee);
+                dbHandler.signUpRepresentative(representative2);
 
 
             } catch (SQLException throwables) {
