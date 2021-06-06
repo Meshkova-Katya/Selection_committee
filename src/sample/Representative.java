@@ -5,12 +5,18 @@ public class Representative {
     private String telephone;
     private String registration;
     private String gender;
-    private String parent;
     private String guardian;
     private String passport_ID;
     private String passport_series;
 
-    public Representative(String name, String pass_id, String pass_series, String reg, String phone, String gender, String guardian, String parent) {
+    public Representative(String name, String pass_id, String pass_series, String reg, String phone, String gender, String guardian) {
+        this.name_representative = name;
+        this.telephone = phone;
+        this.passport_ID = pass_id;
+        this.registration = reg;
+        this.gender = gender;
+        this.guardian = guardian;
+        this.passport_series = pass_series;
     }
 
 
@@ -46,13 +52,8 @@ public class Representative {
         this.gender = gender;
     }
 
-    public String getParent() {
-        return parent;
-    }
 
-    public void setParent(String parent) {
-        this.parent = parent;
-    }
+
 
     public String getGuardian() {
         return guardian;

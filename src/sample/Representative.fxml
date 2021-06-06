@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -9,8 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F0E68C;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RepresentativeController">
     <children>
         <Label layoutX="216.0" layoutY="29.0" prefHeight="51.0" prefWidth="191.0" text="Представитель">
@@ -66,15 +66,15 @@
             </font>
         </RadioButton>
       <TextField fx:id="telephone" layoutX="181.0" layoutY="231.0" prefHeight="26.0" prefWidth="250.0" />
-      <ComboBox fx:id="comboBox2" layoutX="424.0" layoutY="135.0" prefWidth="150.0" >
+      <ComboBox fx:id="comboBox2" layoutX="424.0" layoutY="135.0" prefWidth="150.0">
           <items>
               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Родитель"/>
-                  <String fx:value="Опекун"/>
+                  <String fx:value="Родитель" />
+                  <String fx:value="Опекун" />
               </FXCollections>
           </items>
           <value>
-              <String fx:value="Представитель"/>
+              <String fx:value="Представитель" />
           </value>
       </ComboBox>
     </children>

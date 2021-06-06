@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F0E68C;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StudentController">
+    <children>
+        <Label layoutX="218.0" layoutY="28.0" prefHeight="51.0" prefWidth="176.0" text="Поздравляем!">
+            <font>
+                <Font name="Dubai Regular" size="26.0" />
+            </font>
+        </Label>
+      <Label layoutX="181.0" layoutY="106.0" prefHeight="51.0" prefWidth="176.0" text="С Вашим баллом">
+         <font>
+            <Font name="Dubai Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="score" layoutX="348.0" layoutY="118.0" prefHeight="26.0" prefWidth="91.0" />
+      <Label layoutX="34.0" layoutY="157.0" prefHeight="51.0" prefWidth="307.0" text="Вы зачисленны на специальность  - " wrapText="true">
+         <font>
+            <Font name="Dubai Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="specialty" layoutX="347.0" layoutY="170.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="34.0" layoutY="215.0" prefHeight="51.0" prefWidth="307.0" text="Номер Вашей зачётной книжки  -" wrapText="true">
+         <font>
+            <Font name="Dubai Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numberBook" layoutX="347.0" layoutY="227.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="174.0" layoutY="300.0" prefHeight="51.0" prefWidth="250.0" text="Ждём Вас 1 сентября!" wrapText="true">
+         <font>
+            <Font name="Dubai Regular" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="380.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/one.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

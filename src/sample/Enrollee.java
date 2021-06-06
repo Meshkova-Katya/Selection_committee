@@ -19,6 +19,9 @@ public class Enrollee {
         this.gender = gender;
     }
 
+    public Enrollee() {
+    }
+
     public String getAdmission_score() {
         return admission_score;
     }

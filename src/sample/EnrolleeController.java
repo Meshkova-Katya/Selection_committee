@@ -9,11 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class EnrolleeController {
@@ -44,7 +40,6 @@ public class EnrolleeController {
     private ToggleGroup group;
 
 
-
     @FXML
     private ComboBox<?> comboBox;
 
@@ -52,10 +47,20 @@ public class EnrolleeController {
 
         DatabaseHandler dbHandler = new DatabaseHandler();
         String admission = admission_score.getText().trim();
+
+        float score = Float.parseFloat(admission_score.getText());
+        if (score < 2 || score > 5) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Средний балл может быть от 2 до 5!");
+            alert.showAndWait();
+            System.exit(0);
+        }
         String pass_Id = passport_ID.getText().trim();
         String pass_series = passport_series.getText().trim();
         String reg = registration.getText().trim();
         String name_enroll = name_enrollee.getText().trim();
+
         String name_specialty = "";
         if (comboBox.getValue().equals("Информационные системы и программирование")) {
             name_specialty = "Информационные системы и программирование";
@@ -76,7 +81,7 @@ public class EnrolleeController {
             }
 
 
-            Enrollee enrollee = new Enrollee(admission, pass_Id, pass_series, reg,  name_specialty, name_enroll, gender);
+            Enrollee enrollee = new Enrollee(admission, pass_Id, pass_series, reg, name_specialty, name_enroll, gender);
 
 
             try {
@@ -92,33 +97,40 @@ public class EnrolleeController {
             System.out.println(str);
         }
 
-    }
 
+    }
 
 
     @FXML
     void initialize() {
-        button1.setOnAction(event -> signUpNewEnrollee());
-        button1.setOnAction(event -> window(button1));
+
+        button1.setOnAction(event -> {
+            signUpNewEnrollee();
+            finishWindow();
+        });
+
 
     }
 
-    public void window(Button button1){
-         button1.getScene().getWindow().hide(); // закрытие текущего окна
+    private void finishWindow() {
+        button1.getScene().getWindow().hide(); // закрытие текущего окна
 
-         FXMLLoader loader = new FXMLLoader();
-         loader.setLocation(getClass().getResource("/sample/Representative.fxml"));
 
-         try {
-             loader.load();
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Representative.fxml"));
 
-         Parent root = loader.getRoot();
-         Stage stage = new Stage();
-         stage.setScene(new Scene(root, 600, 600));
-         stage.showAndWait(); // чтобы подождал
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-     }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root, 600, 600));
+        stage.showAndWait(); // чтобы подождал
+
+
+    }
+
 }
